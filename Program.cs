@@ -8,7 +8,7 @@ namespace DictionayTest
     class Program
     {
 
-        public static int Classify(DataSet<ClassifiedDataItem> dataset, DataItem item)
+        public static ClassifiedDataItem Classify(DataSet<ClassifiedDataItem> dataset, DataItem item)
         {
             var classes = dataset.Select(d => d.Class).Distinct();
             foreach (var c in classes)
@@ -45,7 +45,7 @@ namespace DictionayTest
             //     }
             // }
 
-            return 0;
+            return new ClassifiedDataItem(_class: 0, item: item);
         }
 
         static void Main(string[] args)
