@@ -10,8 +10,8 @@ namespace DictionayTest
 
         public static int Classify(DataSet<ClassifiedDataItem> dataset, DataItem item)
         {
-            var classes = dataset.Distinct(d => d.Class);
-            foreach(var c in classes)
+            var classes = dataset.Select(d => d.Class).Distinct();
+            foreach (var c in classes)
             {
                 Console.WriteLine(c);
             }
@@ -20,7 +20,7 @@ namespace DictionayTest
             // {
             //     d[i]=new Dictionary<int, int>();
             // }
-            
+
             // for(int i=0; i<data.Length; i++)
             // {
             //     for(int j=0; j<data[i].Length; j++)
@@ -44,8 +44,8 @@ namespace DictionayTest
             //     Console.WriteLine();
             //     }
             // }
-             
-            // return 0;
+
+            return 0;
         }
 
         static void Main(string[] args)
@@ -68,7 +68,7 @@ namespace DictionayTest
                     new ClassifiedDataItem(2,3,2,1,1)
                 };
             DataItem input = new DataItem(1, 2, 2, 2);
-            Classify(data,input);
+            Classify(dataset, input);
         }
     }
 }
